@@ -1,0 +1,183 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Console.WriteLine("Выберите операцию:");
+            Console.WriteLine("1. Сложение");
+            Console.WriteLine("2. Вычитание");
+            Console.WriteLine("3. Умножение");
+            Console.WriteLine("4. Деление");
+            Console.WriteLine("5. Возведение в степень");
+            Console.WriteLine("6. Корень");
+            Console.WriteLine("7. Процент");
+            Console.WriteLine("8. Факториал");
+            Console.WriteLine("9. Логарифм");
+            Console.WriteLine("10. Тригонометрические функции");
+            Console.WriteLine("11. Площадь прямоугольника");
+            Console.WriteLine("12. Периметр прямоугольника");
+            Console.WriteLine("13. Выход");
+            Console.Write("Введите номер операции: ");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 13) break;
+
+            double num1, num2, result;
+
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Введите первое число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите второе число: ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = num1 + num2;
+                    Console.WriteLine($"Результат: {result}");
+                    break;
+
+                case 2:
+                    Console.Write("Введите первое число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите второе число: ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = num1 - num2;
+                    Console.WriteLine($"Результат: {result}");
+                    break;
+
+                case 3:
+                    Console.Write("Введите первое число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите второе число: ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = num1 * num2;
+                    Console.WriteLine($"Результат: {result}");
+                    break;
+
+                case 4:
+                    Console.Write("Введите первое число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите второе число: ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    if (num2 != 0)
+                    {
+                        result = num1 / num2;
+                        Console.WriteLine($"Результат: {result}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка: Деление на ноль.");
+                    }
+                    break;
+
+                case 5:
+                    Console.Write("Введите число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите степень: ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = Math.Pow(num1, num2);
+                    Console.WriteLine($"Результат: {result}");
+                    break;
+
+                case 6:
+                    Console.Write("Введите число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    result = Math.Sqrt(num1);
+                    Console.WriteLine($"Результат: {result}");
+                    break;
+
+                case 7:
+                    Console.Write("Введите число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите процент (например,20 для 20%): ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = (num1 * num2) / 100;
+                    Console.WriteLine($"Результат: {result}");
+                    break;
+
+                case 8:
+                    Console.Write("Введите число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine($"Факториал {num1}: {Factorial((int)num1)}");
+                    break;
+
+                case 9:
+                    Console.Write("Введите число: ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    result = Math.Log(num1);
+                    Console.WriteLine($"Логарифм числа {num1}: {result}");
+                    break;
+
+                case 10:
+                    Console.WriteLine("Выберите тригонометрическую функцию:");
+                    Console.WriteLine("1. Синус");
+                    Console.WriteLine("2. Косинус");
+                    Console.WriteLine("3. Тангенс");
+                    int trigChoice = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Введите угол (в градусах): ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    num1 = num1 * (Math.PI / 180); // преобразование градусов в радианы
+                    switch (trigChoice)
+                    {
+                        case 1:
+                            result = Math.Sin(num1);
+                            Console.WriteLine($"Синус: {result}");
+                            break;
+                        case 2:
+                            result = Math.Cos(num1);
+                            Console.WriteLine($"Косинус: {result}");
+                            break;
+                        case 3:
+                            result = Math.Tan(num1);
+                            Console.WriteLine($"Тангенс: {result}");
+                            break;
+                        default:
+                            Console.WriteLine("Неверный выбор.");
+                            break;
+                    }
+                    break;
+
+                case 11:
+                    Console.Write("Введите первую сторону (длинну): ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите вторую сторону (ширину): ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = num1 * num2;
+                    Console.WriteLine($"Площадь прямоугольника: {result}");
+                    break;
+
+                case 12:
+                    Console.Write("Введите первую сторону (длинну): ");
+                    num1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Введите вторую сторону (ширину): ");
+                    num2 = Convert.ToDouble(Console.ReadLine());
+                    result = 2 * (num1 + num2);
+                    Console.WriteLine($"Периметр прямоугольника: {result}");
+                    break;
+
+                default:
+                    Console.WriteLine("Неверный выбор.");
+                    break;
+            }
+
+            Console.WriteLine("Нажмите любую клавишу для продолжения...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+    }
+
+    static long Factorial(int number)
+    {
+        if (number < 0) return -1; // Возвращаем -1 для отрицательных чисел
+        if (number == 0) return 1;
+        long result = 1;
+        for (int i = 1; i <= number; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+}
